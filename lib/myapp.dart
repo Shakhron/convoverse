@@ -1,6 +1,9 @@
+import 'package:firebase/core/di/init_di.dart';
 import 'package:firebase/core/theme/theme.dart';
+import 'package:firebase/features/auth/domain/usecases/auth_usecase.dart';
 import 'package:firebase/features/auth/presentation/auth_screen.dart';
 import 'package:firebase/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,14 +13,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: buildLightTheme(),
-      darkTheme: buildDarkTheme(),
-      themeMode: ThemeMode.system,
-      home: BlocProvider(
-        create: (context) => AuthBloc(),
-        child: const AuthScreen(),
-      ),
-    );
+        debugShowCheckedModeBanner: false,
+        theme: buildLightTheme(),
+        darkTheme: buildDarkTheme(),
+        themeMode: ThemeMode.system,
+        home: StreamBuilder(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Container();
+            }
+
+            return BlocProvider(
+              create: (context) =>
+                  AuthBloc(authRepo: locator.get<AuthUseCase>()),
+              child: const AuthScreen(),
+            );
+          },
+        ));
   }
 }
