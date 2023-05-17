@@ -1,5 +1,7 @@
+import 'package:firebase/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:firebase/features/auth/presentation/widgets/auth_button_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UnauthorizedWidget extends StatelessWidget {
   const UnauthorizedWidget({super.key});
@@ -21,12 +23,14 @@ class UnauthorizedWidget extends StatelessWidget {
           const Expanded(child: SizedBox()),
           AuthButtonWidget(
             imageName: 'images/google.png',
-            onPressed: () {},
+            onPressed: () {
+              context.read<AuthBloc>().add(const AuthEvent.signInWithGoogle());
+            },
           ),
           const SizedBox(height: 8),
-          AuthButtonWidget(
+          const AuthButtonWidget(
             text: 'Apple',
-            onPressed: () {},
+            onPressed: null,
           ),
         ],
       ),
