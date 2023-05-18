@@ -5,10 +5,25 @@ class SearchFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 20,
-      width: double.infinity,
-      child: Container(color: Colors.green),
+    return TextField(
+      cursorColor: Colors.blueGrey,
+      autofocus: false,
+      decoration: InputDecoration(
+        filled: true,
+        floatingLabelBehavior: FloatingLabelBehavior.never,
+        labelText: 'Search',
+        prefixIcon: const Icon(
+          Icons.search,
+          color: Colors.grey,
+        ),
+        border: const OutlineInputBorder(),
+        fillColor: Theme.of(context).appBarTheme.backgroundColor,
+        focusColor: Colors.grey,
+        hoverColor: Colors.grey,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+        focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.grey)),
+      ),
     );
   }
 }

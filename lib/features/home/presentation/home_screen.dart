@@ -12,9 +12,11 @@ class HomeScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           const AppBarWidget(title: 'Chats', imageUrl: 'imageUrl'),
-          SliverAppBar(
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-            title: const SearchFieldWidget(),
+          const SliverPadding(
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            sliver: SliverToBoxAdapter(
+              child: SearchFieldWidget(),
+            ),
           ),
           SliverList(
               delegate: SliverChildBuilderDelegate(

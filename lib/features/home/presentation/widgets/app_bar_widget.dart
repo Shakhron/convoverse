@@ -24,13 +24,13 @@ class AppBarWidget extends StatelessWidget {
               title,
               style: Theme.of(context).textTheme.headlineLarge,
             ),
-            SizedBox(
-              height: 15,
-              width: 15,
-              child: Container(
-                color: Colors.green,
+            const SizedBox(
+              height: 35,
+              width: 35,
+              child: CircleAvatar(
+                backgroundImage: AssetImage('images/user.png'),
               ),
-            )
+            ),
           ],
         ),
       ),
