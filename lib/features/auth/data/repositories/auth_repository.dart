@@ -9,9 +9,10 @@ class AuthRepository extends AuthUseCase {
   final _firebaseAuth = FirebaseAuth.instance;
 
   @override
-  Future getUser() {
-    // TODO: implement getUser
-    throw UnimplementedError();
+  User? getUser() {
+    if (_firebaseAuth.currentUser != null) {
+      return _firebaseAuth.currentUser;
+    }
   }
 
   @override

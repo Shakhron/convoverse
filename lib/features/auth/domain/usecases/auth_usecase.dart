@@ -5,5 +5,5 @@ abstract class AuthUseCase {
 
   Future signOut();
 
-  Future getUser();
+  getUser();
 }

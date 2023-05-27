@@ -55,3 +55,4 @@ lib/core/di/init_di.config.dart
 lib/firebase_options.dart
 analysis_options.yaml
 pubspec.lock
+lib/features/home/presentation/bloc/home_bloc.freezed.dart
