@@ -3,6 +3,7 @@ import 'package:firebase/core/theme/theme.dart';
 import 'package:firebase/features/auth/domain/usecases/auth_usecase.dart';
 import 'package:firebase/features/auth/presentation/auth_screen.dart';
 import 'package:firebase/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:firebase/features/home/presentation/bloc/home_bloc.dart';
 import 'package:firebase/features/home/presentation/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,10 @@ class MyApp extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return const HomeScreen();
+              return BlocProvider(
+                create: (context) => HomeBloc(),
+                child: const HomeScreen(),
+              );
             }
 
             return BlocProvider(
