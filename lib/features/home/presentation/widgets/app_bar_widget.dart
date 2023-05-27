@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppBarWidget extends StatelessWidget {
   final String title;
-  final String imageUrl;
-  const AppBarWidget({super.key, required this.title, required this.imageUrl});
+  final String? imageUrl;
+  const AppBarWidget({super.key, required this.title, this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +24,21 @@ class AppBarWidget extends StatelessWidget {
               title,
               style: Theme.of(context).textTheme.headlineLarge,
             ),
-            const SizedBox(
-              height: 35,
-              width: 35,
-              child: CircleAvatar(
-                backgroundImage: AssetImage('images/user.png'),
-              ),
-            ),
+            imageUrl == null
+                ? const SizedBox(
+                    height: 35,
+                    width: 35,
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage('images/user.png'),
+                    ),
+                  )
+                : SizedBox(
+                    height: 35,
+                    width: 35,
+                    child: CircleAvatar(
+                      backgroundImage: NetworkImage(imageUrl!),
+                    ),
+                  ),
           ],
         ),
       ),
