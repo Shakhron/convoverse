@@ -11,6 +11,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<HomeBloc>().add(const HomeEvent.init());
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         return Scaffold(
@@ -36,10 +37,12 @@ class HomeScreen extends StatelessWidget {
                 loaded: (rooms) => SliverList(
                     delegate: SliverChildBuilderDelegate(
                   (_, int index) {
-                    return const ChatCardWidget(
-                        name: 'User', imageUrl: '', message: 'some message');
+                    return ChatCardWidget(
+                        name: rooms[index].title,
+                        imageUrl: '',
+                        message: rooms[index].lastMessage);
                   },
-                  childCount: 5,
+                  childCount: rooms.length,
                 )),
                 error: (error) =>
                     SliverToBoxAdapter(child: Center(child: Text(error))),

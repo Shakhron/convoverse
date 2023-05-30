@@ -24,7 +24,8 @@ class MyApp extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return BlocProvider(
-                create: (context) => HomeBloc(),
+                create: (context) =>
+                    HomeBloc(uid: FirebaseAuth.instance.currentUser!.uid),
                 child: const HomeScreen(),
               );
             }
