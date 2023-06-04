@@ -14,6 +14,20 @@ Flutter: Кросс-платформенный фреймворк для раз�
 Firebase: Платформа разработки приложений, предоставляющая различные сервисы, включая аутентификацию, базу данных в реальном времени и облачное хранилище.
 WebRTC: Технология для передачи аудио и видео в режиме реального времени через сеть Интернет.
 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+ConvoVerse - messenger with an adaptive theme
+
+ConvoVerse is a mobile messenger application developed using the modern Clean Architecture architecture. Within this architecture, the ConvoVerse project is organized according to the principle of separation into features.
+
+Each functionality of the application, such as sending messages, managing contacts or notifications, is allocated in a separate module known as feature. Each feature contains its own set of views (UI), presenters (Presenter) and repositories (Repository), which ensures logical separation and simplifies the development, testing and support of the application.
+
+This approach allows the development team to work in parallel on various application features without affecting other parts of the code base. This speeds up the development process and provides high flexibility and scalability of the application.
+
+The ConvoVerse project uses the following technologies and tools:
+
+Flutter: A cross-platform framework for mobile app development. Firebase: An application development platform that provides various services, including authentication, a real-time database and cloud storage. WebRTC: Technology for real-time audio and video transmission over the Internet.
+
 <p float="left">
 <img src="Screenshot_1685882561.png" alt="screenshot" width="200"/>
 <img src="Screenshot_1685882616.png" alt="screenshot" width="200"/>
