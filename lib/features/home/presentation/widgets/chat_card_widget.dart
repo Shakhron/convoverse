@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ChatCardWidget extends StatelessWidget {
@@ -17,13 +18,21 @@ class ChatCardWidget extends StatelessWidget {
         name,
         style: Theme.of(context).textTheme.bodyLarge,
       ),
-      leading: const SizedBox(
-        height: 50,
-        width: 50,
-        child: CircleAvatar(
-          backgroundImage: AssetImage('images/user.png'),
-        ),
-      ),
+      leading: imageUrl.isEmpty
+          ? const SizedBox(
+              height: 50,
+              width: 50,
+              child: CircleAvatar(
+                backgroundImage: AssetImage('images/user.png'),
+              ),
+            )
+          : SizedBox(
+              height: 50,
+              width: 50,
+              child: CircleAvatar(
+                backgroundImage: CachedNetworkImageProvider(imageUrl),
+              ),
+            ),
       subtitle: Text(
         message,
         style: Theme.of(context).textTheme.labelSmall,

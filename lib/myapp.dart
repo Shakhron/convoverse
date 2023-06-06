@@ -3,6 +3,7 @@ import 'package:firebase/core/theme/theme.dart';
 import 'package:firebase/features/auth/domain/usecases/auth_usecase.dart';
 import 'package:firebase/features/auth/presentation/auth_screen.dart';
 import 'package:firebase/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:firebase/features/home/domain/useCases/home_usecase.dart';
 import 'package:firebase/features/home/presentation/bloc/home_bloc.dart';
 import 'package:firebase/features/home/presentation/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -24,8 +25,9 @@ class MyApp extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return BlocProvider(
-                create: (context) =>
-                    HomeBloc(uid: FirebaseAuth.instance.currentUser!.uid),
+                create: (context) => HomeBloc(
+                    uid: FirebaseAuth.instance.currentUser!.uid,
+                    repo: locator.get<HomeUseCase>()),
                 child: const HomeScreen(),
               );
             }

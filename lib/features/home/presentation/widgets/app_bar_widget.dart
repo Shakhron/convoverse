@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class AppBarWidget extends StatelessWidget {
@@ -24,21 +25,24 @@ class AppBarWidget extends StatelessWidget {
               title,
               style: Theme.of(context).textTheme.headlineLarge,
             ),
-            imageUrl == null
-                ? const SizedBox(
-                    height: 35,
-                    width: 35,
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage('images/user.png'),
+            GestureDetector(
+              onTap: () => null,
+              child: imageUrl == null
+                  ? const SizedBox(
+                      height: 35,
+                      width: 35,
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage('images/user.png'),
+                      ),
+                    )
+                  : SizedBox(
+                      height: 35,
+                      width: 35,
+                      child: CircleAvatar(
+                        backgroundImage: CachedNetworkImageProvider(imageUrl!),
+                      ),
                     ),
-                  )
-                : SizedBox(
-                    height: 35,
-                    width: 35,
-                    child: CircleAvatar(
-                      backgroundImage: NetworkImage(imageUrl!),
-                    ),
-                  ),
+            ),
           ],
         ),
       ),
