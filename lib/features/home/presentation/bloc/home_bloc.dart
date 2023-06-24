@@ -24,7 +24,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       add(_$_CreateRoom(event));
     });
     on<_NewRoom>((event, emit) {
-      emit(const _$_Loaded());
+      emit(_$_Loaded(event.rooms));
     });
     on<_CreateRoom>((event, emit) {
       if (event.event.snapshot.value != null) {
@@ -43,7 +43,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           }
 
           rooms.add(Room.fromDTO(room, users));
-          add(const _$_NewRoom());
+          add(_$_NewRoom(rooms));
         });
       } else {
         emit(const _$_Empty());

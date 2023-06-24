@@ -5,9 +5,18 @@ ThemeData buildLightTheme() {
       scaffoldBackgroundColor: Colors.white,
       indicatorColor: Colors.black,
       canvasColor: Colors.black,
+      iconTheme: const IconThemeData(color: Colors.blue, size: 24, weight: 24),
+      inputDecorationTheme: InputDecorationTheme(
+          fillColor: const Color.fromARGB(255, 231, 230, 230),
+          filled: true,
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(23),
+              borderSide: BorderSide.none),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 4, horizontal: 16)),
       appBarTheme: const AppBarTheme(
-        backgroundColor: Color.fromARGB(255, 245, 245, 245),
-      ),
+          backgroundColor: Color.fromARGB(255, 245, 245, 245),
+          iconTheme: IconThemeData(color: Colors.blue)),
       textTheme: const TextTheme(
         headlineLarge: TextStyle(
           fontSize: 28,

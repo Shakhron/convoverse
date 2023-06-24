@@ -13,6 +13,7 @@ class AuthRepository extends AuthUseCase {
     if (_firebaseAuth.currentUser != null) {
       return _firebaseAuth.currentUser;
     }
+    return null;
   }
 
   @override
