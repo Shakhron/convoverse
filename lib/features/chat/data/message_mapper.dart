@@ -2,6 +2,7 @@ import 'package:firebase/features/chat/data/DTO/messageDTO.dart';
 import 'package:firebase/features/chat/domain/entities/message.dart';
 
 class MessageMapper {
+  // mapper for converting dto to entity and again
   static Message fromDTO(MessageDTO messageDTO) {
     return Message(
       id: messageDTO.id,

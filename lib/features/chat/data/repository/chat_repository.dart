@@ -19,4 +19,9 @@ class Homerepository extends ChatUseCase {
   Future sendMessage(MessageDTO messageDTO) async {
     await _messageRef.update(messageDTO.toMap());
   }
+
+  // @override
+  // Stream<DatabaseEvent> getMessage(String roomsId) {
+
+  // }
 }

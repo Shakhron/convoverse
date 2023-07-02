@@ -1,6 +1,7 @@
 import 'package:firebase/core/di/init_di.dart';
 import 'package:firebase/core/theme/theme.dart';
-import 'package:firebase/features/auth/domain/usecases/auth_usecase.dart';
+import 'package:firebase/features/auth/data/repositories/auth_repository_impl.dart';
+import 'package:firebase/features/auth/domain/repository/auth_repository.dart';
 import 'package:firebase/features/auth/presentation/auth_screen.dart';
 import 'package:firebase/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:firebase/features/home/domain/useCases/home_usecase.dart';
@@ -33,8 +34,7 @@ class MyApp extends StatelessWidget {
             }
 
             return BlocProvider(
-              create: (context) =>
-                  AuthBloc(authRepo: locator.get<AuthUseCase>()),
+              create: (context) => AuthBloc(),
               child: const AuthScreen(),
             );
           },

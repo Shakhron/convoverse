@@ -27,6 +27,7 @@ dependencies:
   firebase_database: ^10.2.1
   json_serializable: ^6.6.2
   cached_network_image: ^3.2.3
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:
