@@ -15,10 +15,7 @@ class AuthRepositoryImpl extends AuthRepository {
 
   @override
   User? getUser() {
-    if (_firebaseAuth.currentUser != null) {
-      return _firebaseAuth.currentUser;
-    }
-    return null;
+    return _firebaseAuth.currentUser;
   }
 
   @override

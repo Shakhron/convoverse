@@ -1,8 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 part 'auth_user.freezed.dart';
 
 @freezed
+@injectable
 class AuthUser with _$AuthUser {
   const factory AuthUser({
     required String? uid,
